@@ -19,3 +19,10 @@ go mod init github.com/aayushxrj/gRPC-demo
 go get google.golang.org/grpc
 go mod tidy
 ```
+# TLS
+
+old .X509 certificate doesn't work anymore
+
+```
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem -config cert.conf  
+```
