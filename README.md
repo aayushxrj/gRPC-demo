@@ -28,6 +28,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pe
 ```
 
 # More commands 
+```
 protoc -I=proto --go_out=. --go-grpc_out=. proto/main.proto proto/greeter.proto
-
+```
+```
 protoc -I=proto --go_out=. --go-grpc_out=. proto/main.proto proto/greeter.proto proto/farewell/farewell.proto
+```
