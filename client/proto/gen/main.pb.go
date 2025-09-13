@@ -131,9 +131,10 @@ const file_main_proto_rawDesc = "" +
 	"\vAddResponse\x12\x10\n" +
 	"\x03sum\x18\x01 \x01(\x05R\x03sum2C\n" +
 	"\tCalculate\x126\n" +
-	"\x03Add\x12\x16.calculator.AddRequest\x1a\x17.calculator.AddResponse2G\n" +
+	"\x03Add\x12\x16.calculator.AddRequest\x1a\x17.calculator.AddResponse2\x83\x01\n" +
 	"\aGreeter\x12<\n" +
-	"\x05Greet\x12\x18.calculator.HelloRequest\x1a\x19.calculator.HelloResponseB\x16Z\x14/proto/gen;mainapipbb\x06proto3"
+	"\x05Greet\x12\x18.calculator.HelloRequest\x1a\x19.calculator.HelloResponse\x12:\n" +
+	"\x03Add\x12\x18.calculator.HelloRequest\x1a\x19.calculator.HelloResponseB\x16Z\x14/proto/gen;mainapipbb\x06proto3"
 
 var (
 	file_main_proto_rawDescOnce sync.Once
@@ -157,10 +158,12 @@ var file_main_proto_goTypes = []any{
 var file_main_proto_depIdxs = []int32{
 	0, // 0: calculator.Calculate.Add:input_type -> calculator.AddRequest
 	2, // 1: calculator.Greeter.Greet:input_type -> calculator.HelloRequest
-	1, // 2: calculator.Calculate.Add:output_type -> calculator.AddResponse
-	3, // 3: calculator.Greeter.Greet:output_type -> calculator.HelloResponse
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	2, // 2: calculator.Greeter.Add:input_type -> calculator.HelloRequest
+	1, // 3: calculator.Calculate.Add:output_type -> calculator.AddResponse
+	3, // 4: calculator.Greeter.Greet:output_type -> calculator.HelloResponse
+	3, // 5: calculator.Greeter.Add:output_type -> calculator.HelloResponse
+	3, // [3:6] is the sub-list for method output_type
+	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name

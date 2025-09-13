@@ -70,9 +70,18 @@ func main() {
 		log.Fatalln("Could not greet", err)
 	}
 
+	req4 := &mainapipb.HelloRequest{
+		Name : "Aayush",
+	}
+	res4, err := client2.Add(ctx, req4)
+	if err != nil {
+		log.Fatalln("Could not greet", err)
+	}
+
 	log.Println("Sum:", res.Sum)
 	log.Println("Greet:", res2.Message)
 	log.Println("Farewell:", res3.Message)
+	log.Println("Add:", res4.Message)
 
 	state := conn.GetState()
 	log.Println("Connection state:",state)

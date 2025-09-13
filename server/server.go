@@ -13,18 +13,30 @@ import (
 
 type server struct {
 	pb.UnimplementedCalculateServer
-	pb.UnimplementedGreeterServer 
+	// pb.UnimplementedGreeterServer 
 	farewellpb.UnimplementedGoodByeServer
 }
 
+type server2 struct {
+	pb.UnimplementedGreeterServer 
+}
+
 func (s *server) Add(ctx context.Context, req *pb.AddRequest) (*pb.AddResponse, error){
-	log.Println("Add RPC called.")
+	log.Println("Caculate's Add RPC called.")
 	return &pb.AddResponse{
 		Sum : req.A + req.B,
 	}, nil
 }
 
-func (s *server) Greet(ctx context.Context, req *pb.HelloRequest) (*pb.HelloResponse, error){
+func (s *server2) Add(ctx context.Context, req *pb.HelloRequest) (*pb.HelloResponse, error){
+	log.Println("Greet's Add RPC called.")
+	return &pb.HelloResponse{
+		Message: "Hello "+req.GetName(),
+	}, nil
+}
+
+// func (s *server) Greet(ctx context.Context, req *pb.HelloRequest) (*pb.HelloResponse, error){
+func (s *server2) Greet(ctx context.Context, req *pb.HelloRequest) (*pb.HelloResponse, error){
 	log.Println("Greet RPC called.")
 	return &pb.HelloResponse{
 		Message: "Hello "+req.GetName(),
@@ -56,7 +68,7 @@ func main (){
 	grpcServer := grpc.NewServer(grpc.Creds(creds))
 
 	pb.RegisterCalculateServer(grpcServer, &server{})
-	pb.RegisterGreeterServer(grpcServer, &server{})
+	pb.RegisterGreeterServer(grpcServer, &server2{})
 	farewellpb.RegisterGoodByeServer(grpcServer, &server{})
 
 	log.Printf("Server is running on the port%s", port)
